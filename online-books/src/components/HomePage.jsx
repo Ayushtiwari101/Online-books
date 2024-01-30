@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../App.css';
+import { Link } from 'react-router-dom';
+import './HomePage.css'; // Add a CSS file and import it here
 
 function Home() {
-  const [allBooks, setAllBooks] = useState([]);
+  const [books, setBooks] = useState([]);
   const [searchedBooks, setSearchedBooks] = useState([]);
-  const [searches, setSearches] = useState('');
+  const [searchInput, setSearchInput] = useState('');
 
   useEffect(() => {
     axios
@@ -14,51 +15,56 @@ function Home() {
       })
       .then((response) => {
         const data = response.data.books;
-        setAllBooks(data);
+        setBooks(data);
       })
       .catch(() => {
-        console.log("Status code: 404");
-        console.log("Website not found");
+        console.error("Error fetching books");
       });
   }, []);
 
   useEffect(() => {
-    const filtered = allBooks.filter((item) =>
-      item.title.toLowerCase().includes(searches.toLowerCase())
+    const filteredBooks = books.filter((item) =>
+      item.title.toLowerCase().includes(searchInput.toLowerCase())
     );
-    setSearchedBooks(filtered);
-  }, [searches, allBooks]);
+    setSearchedBooks(filteredBooks);
+  }, [searchInput, books]);
 
   return (
     <>
-      <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', background: 'black', color: '#fff' }}>
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Kalvium Books</div>
-        <div>
+      <nav className="navbar">
+        <div className="logo">
+          <div><img src="./logo.svg" alt="" /></div>
+            <span id='book'>Books</span>
+        </div>
+        <div className='search-b'>
           <input
             type="text"
             placeholder="Search Books"
-            value={searches}
-            onChange={(e) => setSearches(e.target.value)}
-            style={{ padding: '0.5rem', borderRadius: '0.25rem', width: '300px' }}
-            // Adjust the width property as needed
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            className="search-input"
           />
+          <div className='search'><img src="./search.png" alt="" id='search' /></div>
         </div>
         <div>
-          <button style={{ background: '#fff', color: 'red', padding: '0.5rem 1rem', borderRadius: '0.25rem', cursor: 'pointer', fontWeight:'bold' }}>Register</button>
+          <Link to="/register">
+            <button className="register-button">
+              Register
+            </button>
+          </Link>
         </div>
       </nav>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem', padding: '1rem' }}>
+      <div className="book-grid">
         {searchedBooks.map((item) => (
-          <div key={item.id}>
-            <div style={{ border: '1px solid #ccc', padding: '1rem', borderRadius: '0.25rem' }}>
-              <div style={{ marginBottom: '0.5rem' }}>
-                <img style={{ width: '100%', borderRadius: '0.25rem' }} src={item.imageLinks.smallThumbnail} alt={item.title} />
-              </div>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{item.title}</h3>
-              <div>
-                <p>⭐{item.averageRating ? item.averageRating : '3'} Free</p>
-              </div>
+          <div key={item.id} className="book-card">
+            <div>
+              <img className="book-image" src={item.imageLinks.smallThumbnail} alt={item.title} />
+            </div>
+            
+            <div className='title'>
+              <h3 className="book-title">{item.title}</h3>
+              <p className="book-rating">⭐{item.averageRating ? item.averageRating : '3'} Free</p>
             </div>
           </div>
         ))}

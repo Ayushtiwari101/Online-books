@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    background-color: rgb(255, 247, 237);
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgb(20, 20, 20);
+    color: #e91616;
+    border: 3px solid #080808;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  #book{
+    font-size: 48px;
+    color: #EF3837;
+    margin-left: 1vw;
+  }
+  
+  .search-input {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    width: 300px;
+  }
+  
+  .register-button {
+    background: #fff;
+    color: red;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 2vw;
+  }
+  .register-button:hover {
+    background-color: red;
+    color: whitesmoke;
+    transform: scale(1.1);
+    transition: ease 0.5;
+}
+  
+  /* Book Grid Styles */
+  .book-grid {
+    width: 55%;
+    height: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem; /* Increased gap for space between book cards */
+    padding: 1rem;
+    justify-content: space-around;
+    margin-left: 20vw;
+  }
+  
+  /* Book Card Styles */
+  .book-card {
+    margin-top: 5vh;
+    border: 3px solid #070707;
+    padding: 1.5rem; /* Increased padding for more space inside the book card */
+    border-radius: 0.25rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Align items at the start and end */
+  }
+
+  .book-card:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+  
+  .book-image {
+    width: 100%; /* Increased image size */
+    height: 300%;
+    max-width: 200px; /* Adjusted maximum width */
+    max-height: 200px; /* Adjusted maximum height */
+    border-radius: 0.25rem;
+  }
+  
+  .book-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem; /* Adjusted margin from the top */
+    text-align: center;
+  }
+  
+  .title {
+    color: white;
+    background-color: black;
+    width: 16.5vw;
+    height: 14vh;
+    margin-top: auto; /* Align at the end */
+    position: relative;
+    top: 3.5vh;
+  }
+  .book-rating {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  .search-b{
+    display: flex;
+    align-items: center;
+  }
+  #search{
+    background-color: white;
+    height: 30px;
+  }
+  
+  
