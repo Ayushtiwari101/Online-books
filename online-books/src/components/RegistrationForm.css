@@ -1,63 +1,83 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
-.Form {
-    position: relative;
-    width: 40vw;
-    top: 17vh;
-    margin-top: 10vh;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .Form h1 {
-    text-align: center;
-    color: #333;
-  }
-  
-  .Form label {
-    display: block;
-    margin-bottom: 15px;
-  }
-  
-  .Form input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  .Form .alert {
-    color: red;
-    font-size: 15px;
-    margin-top: 5px;
 
-  }
-  
-  .Form button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .Form button:hover {
-    background-color: #45a049;
-  }
-  
-  @media (max-width: 768px) {
-    .Form {
-      max-width: 100%;
-    }
-  }
-  
+body {
+  margin: 0;
+  padding: 0;
+  /* Prevent default margin and padding, and hide overflow */
+}
+
+#bg-img {
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Place the background image behind other content */
+}
+
+.Form {
+  background-color: white;
+  position: relative;
+  width: 80%; /* Adjusted width for smaller screens */
+  max-width: 400px; /* Added max-width for larger screens */
+  margin: 10vh auto; /* Center the form vertically */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Form h1 {
+  text-align: center;
+  color: #333;
+}
+
+.Form label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.Form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.Form .alert {
+  color: red;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.Form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.Form button:hover {
+  background-color: #45a049;
+}
+#heading{
+  margin-bottom: 4vh;
+}
+#registration-s{
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}

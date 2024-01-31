@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './HomePage.css'; // Add a CSS file and import it here
 
+
 function Home() {
   const [books, setBooks] = useState([]);
   const [searchedBooks, setSearchedBooks] = useState([]);
@@ -31,7 +32,7 @@ function Home() {
 
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar"> 
         <div className="logo">
           <div><img src="./logo.svg" alt="" /></div>
             <span id='book'>Books</span>
@@ -44,7 +45,8 @@ function Home() {
             onChange={(e) => setSearchInput(e.target.value)}
             className="search-input"
           />
-          <div className='search'><img src="./search.png" alt="" id='search' /></div>
+          <div className='search'>
+            <img src="./search.png" alt="" id='search' /></div>
         </div>
         <div>
           <Link to="/register">
@@ -54,6 +56,7 @@ function Home() {
           </Link>
         </div>
       </nav>
+      <img src="./background.jpg" alt="" id='bg-img'/>
 
       <div className="book-grid">
         {searchedBooks.map((item) => (

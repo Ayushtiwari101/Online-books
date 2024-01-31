@@ -25,6 +25,8 @@ function Form() {
 
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
+  const [submittedFormData, setSubmittedFormData] = useState(null);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -80,6 +82,10 @@ function Form() {
     // Check if all constraints are met before setting registration success
     if (Object.values(newAlerts).every((alert) => alert === '')) {
       setRegistrationSuccess(true);
+      // Store the filled form data in the state
+      setSubmittedFormData(formData);
+      // Display the form data in the console
+      console.log('Submitted Form Data:', formData);
     } else {
       setRegistrationSuccess(false);
     }
@@ -87,14 +93,16 @@ function Form() {
 
   return (
     <>
-      <div className="Form">
-        
-        {registrationSuccess && (
-          <div style={{ backgroundColor: 'blue', color: 'white', padding: '10px', marginTop: '10px', borderRadius: '8px', textAlign: 'center' }}>
+      <img src="./desktop-wallpaper-bookshelf.jpg" alt="" id='bg-img'/>
+      {registrationSuccess && (
+          <div id='registration-s'>
             Registration Successful!
           </div>
         )}
-        <h1>Create Account</h1>
+      <div className="Form">
+        
+        
+        <h1 id='heading'>Create Account</h1>
         <form onSubmit={handleSubmit}>
           <label>
             <input

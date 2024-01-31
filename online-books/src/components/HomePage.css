@@ -51,10 +51,26 @@
     transform: scale(1.1);
     transition: ease 0.5;
 }
+
+
+body {
+  margin: 0;
+  padding: 0;
+   /* Prevent default margin and padding, and hide overflow */
+}
+
+#bg-img {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Place the background image behind other content */
+}
   
   /* Book Grid Styles */
   .book-grid {
-    width: 55%;
+    width: 57%;
     height: 50%;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -100,7 +116,7 @@
   .title {
     color: white;
     background-color: black;
-    width: 16.5vw;
+    width: 17.3vw;
     height: 14vh;
     margin-top: auto; /* Align at the end */
     position: relative;
@@ -115,8 +131,13 @@
     align-items: center;
   }
   #search{
+    position: absolute;
     background-color: white;
-    height: 30px;
+    height: 30.5px;
+    margin-top: -0.95vw;
   }
+
+  
+
   
   
