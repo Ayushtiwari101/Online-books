@@ -64,7 +64,7 @@ body {
 
 #bg-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -139,6 +139,34 @@ body {
     height: 30.5px;
     margin-top: -0.95vw;
   }
+  @media (max-width: 1200px) {
+    #bg-img {
+      width: 100% !important;
+      height: 100vh !important;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      object-fit: cover;
+    }
+    
+    #search{
+      position: absolute;
+      margin-top: -2vh;
+    }
+    .book-title{
+      font-size: 15px;
+    }
+    #heading{
+      position: absolute;
+      font-size: auto;
+    }
+    .title{
+      width: 16.4vw;
+    }
+
+    
+    }
 
 
 
